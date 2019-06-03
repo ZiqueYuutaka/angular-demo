@@ -1,3 +1,12 @@
 <div class="container">
     welcome {{name}}! Go to TODOs here: <a routerLink="/todos">TODOs</a>
 </div>
+
+<div class="container">
+    Click to get welcome message from backend
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome</button>
+</div>
+
+<div class="container">
+    Message from api backend: {{apiMessage}}
+</div>
