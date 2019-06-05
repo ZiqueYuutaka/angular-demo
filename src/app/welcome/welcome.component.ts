@@ -25,7 +25,18 @@ export class WelcomeComponent implements OnInit {
         console.log("===>>>getting welcome message");
         //console.log(this.welcomeData.getHello());
         this.welcomeData.getHello().subscribe(
-            response => this.handleSuccessfulResponse(response)
+            response => this.handleSuccessfulResponse(response),
+            error => this.handleErrorResponse(error)
+        );
+        console.log('last line of welcomeMessage ');
+    }
+    
+    getWelcomeMessageWithParam(){
+        console.log("===>>>getting welcome message");
+        //console.log(this.welcomeData.getHello());
+        this.welcomeData.getHelloWithPathVar(this.name).subscribe(
+            response => this.handleSuccessfulResponse(response),
+            error => this.handleErrorResponse(error)
         );
         console.log('last line of welcomeMessage ');
     }
@@ -33,6 +44,14 @@ export class WelcomeComponent implements OnInit {
     handleSuccessfulResponse(response){
         console.log(response.message);
         this.apiMessage=response.message;
+    }
+    
+    //shortcut version. must implement a front-end signifier of an error
+    handleErrorResponse(error){
+//        console.log(error);
+//        console.log(error.error);
+//        console.log(error.error.message);
+        this.apiMessage = error.error.message;
     }
 
 }

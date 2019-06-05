@@ -15,6 +15,11 @@ export class WelcomeDataService {
     console.log("===>>>Calling api backend from WelcomeDataService");
       return this.httpClient.get<HelloBean>('http://localhost:8080/api/hello-world-bean');
   }
+    
+    getHelloWithPathVar(param) {
+    console.log("===>>>Calling api backend from WelcomeDataService");
+      return this.httpClient.get<HelloBean>(`http://localhost:8080/api/hello-world-bean/${param}`);
+  }
 }
 
 //Structure of the response
