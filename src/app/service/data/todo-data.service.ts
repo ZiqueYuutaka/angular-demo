@@ -15,4 +15,8 @@ export class TodoDataService {
     console.log("===>>>Calling api backend from WelcomeDataService");
       return this.httpClient.get<Todo[]>(`http://localhost:8080/api/users/${param}/todos`);
   }
+    
+    deleteTodo(username, id){
+        return this.httpClient.delete(`http://localhost:8080/api/users/${username}/todos/${id}`);
+    }
 }
