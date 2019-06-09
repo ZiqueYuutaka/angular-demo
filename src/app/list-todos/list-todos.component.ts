@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TodoDataService} from './../service/data/todo-data.service';
+import { TodoDataService } from './../service/data/todo-data.service';
 import { Router } from '@angular/router';
 
 
@@ -10,50 +10,56 @@ import { Router } from '@angular/router';
 })
 export class ListTodosComponent implements OnInit {
 
-//  todos = [
-//    new Todo(1, 'todo 1', 'complete', new Date()),
-//    new Todo(2, 'todo 2', 'pending', new Date()),
-//    new Todo(3, 'todo 3', 'not started', new Date()),
-//  ];
-    deleteMessage:string;
-    todos:Todo[]
+  //  todos = [
+  //    new Todo(1, 'todo 1', 'complete', new Date()),
+  //    new Todo(2, 'todo 2', 'pending', new Date()),
+  //    new Todo(3, 'todo 3', 'not started', new Date()),
+  //  ];
+  deleteMessage: string;
+  todos: Todo[]
   constructor(
-        private todoService: TodoDataService,
-         private router: Router
-    ) { }
+    private todoService: TodoDataService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-      this.retrieveTodos();
+    this.retrieveTodos();
   }
-    
-    retrieveTodos(){
-        this.todoService.getAllTodos('username').subscribe(
-        response => this.convertResponse(response)
-      );
-    }
-    
-    convertResponse(response){
+
+  retrieveTodos() {
+    this.todoService.getAllTodos('username').subscribe(
+      response => this.convertResponse(response)
+    );
+  }
+
+  convertResponse(response) {
+    console.log(response);
+    this.todos = response;
+  }
+
+  deleteTodo(id) {
+    console.log("deleting a todo " + id);
+    this.todoService.deleteTodo('username', id).subscribe(
+      response => {
         console.log(response);
-        this.todos = response;
-    }
-    
-    deleteTodo(id){
-        console.log("deleting a todo " + id);
-        this.todoService.deleteTodo('username', id).subscribe(
-            response=>{
-                console.log(response);
-                this.deleteMessage='Deleted successfully';
-                this.retrieveTodos();
-            }
-        );
-        
-    }
-    
-    updateTodo(id){
-        console.log("updating a todo " + id);
-        this.router.navigate(['todos',id]);
-        
-    }
+        this.deleteMessage = 'Deleted successfully';
+        this.retrieveTodos();
+      }
+    );
+
+  }
+
+  updateTodo(id) {
+    console.log("updating a todo " + id);
+    this.router.navigate(['todos', id]);
+
+  }
+
+  addTodo(id) {
+    console.log("adding a todo " + id);
+    this.router.navigate(['todos', 0]);
+
+  }
 }
 
 export class Todo {
