@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {TodoDataService} from './../service/data/todo-data.service';
 import {Todo} from './../list-todos/list-todos.component';
 
@@ -15,7 +15,8 @@ export class TodoComponent implements OnInit {
     
   constructor(
     private aRouter: ActivatedRoute,
-     private todoService:TodoDataService
+    private todoService: TodoDataService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -30,5 +31,16 @@ export class TodoComponent implements OnInit {
         console.log(response);
         this.todo=response;
     }
+
+  saveTodo() {
+    console.log('saving following todo: ');
+    console.log(this.todo);
+    this.todoService.putTodo('username', this.todoId, this.todo).subscribe(
+      data => console.log(data)
+    )
+
+    //navigate to todos page afterwards.
+    this.router.navigate(['todos']);
+  }
 
 }

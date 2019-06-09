@@ -10,7 +10,7 @@
     <label>Date</label>
     <input type="date" 
            [ngModel]="todo.targetDate | date:'yyyy-MM-dd' "
-           (ngModel)="todo.targetDate = $event"
+           (ngModelChange)="todo.targetDate = $event"
            class="form-control" name="targetDate" required="required">
     </fieldset>
     
