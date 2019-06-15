@@ -3,14 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\list-todos",
-    "\\src\\app\\logout",
-    "\\src\\app\\menu",
-    "\\src\\app\\service",
-    "\\src\\app\\service\\data",
     "\\src\\app\\todo",
     "\\src\\app\\welcome"
   ],
-  "SelectedNode": "\\src\\app\\list-todos\\list-todos.component.html",
+  "SelectedNode": "\\src\\app\\list-todos",
   "PreviewInSolutionExplorer": false
 }

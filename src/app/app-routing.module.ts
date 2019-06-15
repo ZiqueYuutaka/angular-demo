@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService] },
   { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
-    { path: 'todos/:id', component:TodoComponent, canActivate: [RouteGuardService]},
+  { path: 'todos/:id', component:TodoComponent, canActivate: [RouteGuardService]},
     
   { path: '**', component: ErrorComponent } //route anything else to this component
 

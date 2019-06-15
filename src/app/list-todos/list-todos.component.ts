@@ -10,11 +10,6 @@ import { Router } from '@angular/router';
 })
 export class ListTodosComponent implements OnInit {
 
-  //  todos = [
-  //    new Todo(1, 'todo 1', 'complete', new Date()),
-  //    new Todo(2, 'todo 2', 'pending', new Date()),
-  //    new Todo(3, 'todo 3', 'not started', new Date()),
-  //  ];
   deleteMessage: string;
   todos: Todo[]
   constructor(

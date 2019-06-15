@@ -23,7 +23,6 @@ export class WelcomeComponent implements OnInit {
     //Call api backend
     getWelcomeMessage(){
         console.log("===>>>getting welcome message");
-        //console.log(this.welcomeData.getHello());
         this.welcomeData.getHello().subscribe(
             response => this.handleSuccessfulResponse(response),
             error => this.handleErrorResponse(error)
@@ -33,7 +32,6 @@ export class WelcomeComponent implements OnInit {
     
     getWelcomeMessageWithParam(){
         console.log("===>>>getting welcome message");
-        //console.log(this.welcomeData.getHello());
         this.welcomeData.getHelloWithPathVar(this.name).subscribe(
             response => this.handleSuccessfulResponse(response),
             error => this.handleErrorResponse(error)
