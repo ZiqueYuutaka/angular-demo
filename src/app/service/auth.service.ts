@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { API_URL } from '../../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,7 @@ export class AuthService {
     let header = new HttpHeaders({ Authorization: authString });
     return this.httpClient
       .get<AuthBean>(
-        `http://localhost:8080/api/auth`, { headers: header })
+        `${API_URL}/api/auth`, { headers: header })
       .pipe(
         map(
           response => {
